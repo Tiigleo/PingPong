@@ -10,6 +10,7 @@ class Pelota{
         void DibujarPelota() const;
         void BorrarPelota() const;
         void MoverPelota(Jugador A, Jugador B);
+        void asign(int _x, int _y) { x=_x; y=_y;}
 };
 
 #endif

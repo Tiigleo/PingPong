@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
+#include "juego.h"
 #include "gotoxy.h"
 
 using namespace std;
@@ -14,12 +15,14 @@ void Jugador::Dibujar() const {
     gotoxy(x, y-1); cout<<pala;
     gotoxy(x, y); cout<<pala;
     gotoxy(x, y+1); cout<<pala;
+    gotoxy(x, y+2); cout<<pala;
 }
 
 void Jugador::Borrar() const {
     gotoxy(x, y-1); cout<<" ";
     gotoxy(x, y); cout<<" ";
     gotoxy(x, y+1); cout<<" ";
+    gotoxy(x, y+2); cout<<" ";
 }
 
 void Jugador::Movimiento(char up, char down){
@@ -29,7 +32,7 @@ void Jugador::Movimiento(char up, char down){
         tecla = getch();
         if(tecla == up && y>3 ){
             y--;
-        } else if (tecla == down && y<23){
+        } else if (tecla == down && y<20){
             y++;
         }
         Dibujar();

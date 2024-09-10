@@ -24,11 +24,24 @@ void Pelota::MoverPelota(Jugador A, Jugador B){
     x += dx; //la coordenada que ya vale más su incremento
     y += dy;
     DibujarPelota();
-    if( x + dx == 3 || x + dx == 76){
+
+    if(x+dx<=2){
         BorrarPelota();
-        dx = -dx; //cambiamos de dirección la pelota para que se mueva al otro lado si llega a rebotar
+        gotoxy(30,11); cout<<"Gana jugador B"<<endl;
+        system("pause");
+        exit(0);
+    } else if (x+dx>=76){
+        BorrarPelota();
+        gotoxy(30,11); cout<<"Gana jugador A"<<endl;
+        system("pause");
+        exit(0);
     }
-    if( y + dy == 3 || y + dy == 23){
+   /* if( x + dx == 3 || x + dx == 76){
+        BorrarPelota();
+        asign(38,14);  //para que la pelota reaparezca en el centro
+        dx = -dx; //cambiamos de dirección la pelota para que se mueva al otro lado si llega a rebotar
+    }*/
+    if( y + dy == 1 || y + dy == 23){
         dy = -dy;
     }
     if(x + dx == A.RX() && y >= A.RY() -2 && y <= A.RY() + 2) {dx = -dx;}
